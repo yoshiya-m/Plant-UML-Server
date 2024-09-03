@@ -30,9 +30,8 @@ $data = json_decode($jsonData, true)
             <tbody>
 
                 <?php
-                // jsonデータから生成する
-                foreach ($data as $item) {
 
+                foreach ($data as $item) {
                     echo "<tr>";
                     echo "<td  class='clickable-row'><a href='problem.php?id=". $item["id"] . "'>". $item["id"] . "</td>";
                     echo "<td>" . $item["title"] . "</td>";

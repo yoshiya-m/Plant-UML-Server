@@ -25,7 +25,6 @@ function sendRequest(requestType) {
         var text = editor.getValue();
         // 入力テキストが有効か確認
         if ((text.includes("@startuml") === false || text.includes("@enduml") === false) && requestType === "user") {
-            // outputContainer.innerHTML = "";
             config.outputImg.src = "";
             return
         }
@@ -51,7 +50,7 @@ function sendRequest(requestType) {
                 if (data.status === "success") {
                     // 生成された画像を表示する
                     if (requestType === "answer") {
-                        config.answerImg.src = config.answer_img_file;
+                        config.answerImg.src = config.answer_img_file + "?" + new Date().getTime();
                         config.answerCode.classList.add("d-none");
                     } else if (requestType === "user") {
                         config.outputImg.src = config.output_img_file + "?" + new Date().getTime();
