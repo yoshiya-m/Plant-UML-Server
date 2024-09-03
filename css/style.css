@@ -1,0 +1,26 @@
+.UML-img {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+/* 行全体をクリック可能にするためのスタイル */
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background-color: #f0f8ff;
+    columns: #000080;
+    /* ホバー時の背景色 */
+}
+
+.text-red {
+    color: red;
+}
+
+.box {
+    width:50%;
+    height:90%;
+    border:1px solid grey;
+}
+

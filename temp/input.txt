@@ -1,0 +1,6 @@
+@startuml
+admin -> backupTool : initiate backup
+backupTool -> database : backup data
+database --> backupTool : backup complete
+backupTool --> admin : backup successful
+@enduml

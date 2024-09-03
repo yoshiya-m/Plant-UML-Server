@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "ライフラインの活性化",
+        "theme": "シーケンス図",
+        "uml": "@startuml\nautoactivate on\nalice -> bob : hello\nbob -> bob : self call\nbill -> bob #005500 : hello from thread 2\nbob -> george ** : create\nreturn done in thread 2\nreturn rc\nbob -> george !! : delete\nreturn success\n@enduml"
+    },
+    {
+        "id": 2,
+        "title": "ユーザー認証プロセス",
+        "theme": "シーケンス図",
+        "uml": "@startuml\nuser -> system : login\nsystem -> database : verify credentials\ndatabase --> system : success\nsystem --> user : login successful\n@enduml"
+    },
+    {
+        "id": 3,
+        "title": "注文処理フロー",
+        "theme": "シーケンス図",
+        "uml": "@startuml\ncustomer -> webapp : place order\nwebapp -> orderService : process order\norderService -> inventory : check stock\ninventory --> orderService : stock available\norderService --> webapp : order processed\nwebapp --> customer : confirmation\n@enduml"
+    },
+    {
+        "id": 4,
+        "title": "メール送信プロセス",
+        "theme": "シーケンス図",
+        "uml": "@startuml\nuser -> emailClient : compose email\nemailClient -> smtpServer : send email\nsmtpServer -> recipient : deliver email\nrecipient --> smtpServer : email received\nsmtpServer --> emailClient : delivery status\nemailClient --> user : confirmation\n@enduml"
+    },
+    {
+        "id": 5,
+        "title": "データベースバックアップ",
+        "theme": "シーケンス図",
+        "uml": "@startuml\nadmin -> backupTool : initiate backup\nbackupTool -> database : backup data\ndatabase --> backupTool : backup complete\nbackupTool --> admin : backup successful\n@enduml"
+    }
+]
