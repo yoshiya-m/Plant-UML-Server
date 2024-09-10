@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     file_put_contents(USER_INPUT_FILE_PATH, $inputContent);
-    // $commandFormat = "java -jar %s -o %s -tpng %s 2> %s";
-    // $command = sprintf($commandFormat,
-    //     PLANTUML_JAR_FILE_PATH, USER_INPUT_FILE_PATH, $outputDir, ERRORLOG_PATH);
-
-    $commandFormat = "java -jar %s -o %s -tpng %s";
+    $commandFormat = "java -jar %s -o %s -tpng %s 2> %s";
     $command = sprintf($commandFormat,
-        PLANTUML_JAR_FILE_PATH, $outputDir, USER_INPUT_FILE_PATH);
+        PLANTUML_JAR_FILE_PATH, USER_INPUT_FILE_PATH, $outputDir, ERRORLOG_PATH);
+
+    // $commandFormat = "java -jar %s -o %s -tpng %s";
+    // $command = sprintf($commandFormat,
+    //     PLANTUML_JAR_FILE_PATH, $outputDir, USER_INPUT_FILE_PATH);
 
     // コマンドを実行し、出力とエラーを取得
     $output = [];
