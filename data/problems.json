@@ -28,5 +28,125 @@
         "title": "データベースバックアップ",
         "theme": "シーケンス図",
         "uml": "@startuml\nadmin -> backupTool : initiate backup\nbackupTool -> database : backup data\ndatabase --> backupTool : backup complete\nbackupTool --> admin : backup successful\n@enduml"
+    },
+    {
+        "id": 6,
+        "title": "ユーザーのログイン",
+        "theme": "ユースケース図",
+        "uml": "@startuml\nactor User\nUser -> (Login) : tries to login\n(Login) -> (Authentication) : authenticate credentials\n(Authentication) -> (Database) : retrieve user data\n(Database) --> (Authentication) : return user data\n(Authentication) --> (Login) : success\n(Login) --> User : login successful\n@enduml"
+    },
+    {
+        "id": 7,
+        "title": "商品購入プロセス",
+        "theme": "ユースケース図",
+        "uml": "@startuml\nactor Customer\nCustomer -> (Browse Items) : views items\nCustomer -> (Add to Cart) : adds item to cart\nCustomer -> (Checkout) : initiates checkout\n(Checkout) -> (Payment) : process payment\n(Payment) --> (Checkout) : payment success\n(Checkout) --> Customer : purchase complete\n@enduml"
+    },
+    {
+        "id": 8,
+        "title": "ユーザー登録",
+        "theme": "ユースケース図",
+        "uml": "@startuml\nactor NewUser\nNewUser -> (Register) : fills registration form\n(Register) -> (Validation) : validate input\n(Validation) --> (Register) : validation success\n(Register) -> (Database) : store user info\n(Database) --> (Register) : registration complete\n(Register) --> NewUser : registration successful\n@enduml"
+    },
+    {
+        "id": 9,
+        "title": "予約システムの管理",
+        "theme": "ユースケース図",
+        "uml": "@startuml\nactor Admin\nactor User\nUser -> (Make Reservation) : books a slot\n(Make Reservation) -> (Check Availability) : check slot availability\n(Check Availability) --> (Make Reservation) : slot available\n(Make Reservation) -> (Confirmation) : confirm reservation\n(Confirmation) --> User : reservation confirmed\nAdmin -> (Manage Reservations) : manages all reservations\n@enduml"
+    },
+    {
+        "id": 10,
+        "title": "パスワードリセット",
+        "theme": "ユースケース図",
+        "uml": "@startuml\nactor User\nUser -> (Request Password Reset) : requests password reset\n(Request Password Reset) -> (Send Reset Link) : send reset link to email\n(Send Reset Link) --> User : reset link sent\nUser -> (Reset Password) : uses link to reset password\n(Reset Password) -> (Update Database) : update new password\n(Update Database) --> (Reset Password) : success\n(Reset Password) --> User : password reset successful\n@enduml"
+    },
+    {
+        "id": 11,
+        "title": "基本的な図書館管理システム",
+        "theme": "クラス図",
+        "uml": "@startuml\nclass Book {\n    - title: String\n    - author: String\n    - isbn: String\n    + getDetails(): String\n}\n\nclass Member {\n    - name: String\n    - memberId: String\n    + borrowBook(book: Book): void\n    + returnBook(book: Book): void\n}\n\nclass Librarian {\n    - employeeId: String\n    + addBook(book: Book): void\n    + removeBook(book: Book): void\n}\n\nMember \"1\" -- \"*\" Book : borrows\nLibrarian \"1\" -- \"*\" Book : manages\n@enduml"
+    },
+    {
+        "id": 12,
+        "title": "オンラインショッピングシステム",
+        "theme": "クラス図",
+        "uml": "@startuml\nclass Product {\n    - productId: String\n    - name: String\n    - price: float\n    + getProductInfo(): String\n}\n\nclass Cart {\n    - items: List<Product>\n    + addItem(product: Product): void\n    + removeItem(product: Product): void\n    + getTotal(): float\n}\n\nclass Customer {\n    - customerId: String\n    - name: String\n    + addCart(cart: Cart): void\n    + checkout(): void\n}\n\nCustomer \"1\" -- \"1\" Cart : owns\nCart \"1\" -- \"*\" Product : contains\n@enduml"
+    },
+    {
+        "id": 13,
+        "title": "社員管理システム",
+        "theme": "クラス図",
+        "uml": "@startuml\nclass Employee {\n    - empId: String\n    - name: String\n    - department: String\n    + getDetails(): String\n}\n\nclass Department {\n    - deptId: String\n    - deptName: String\n    + addEmployee(employee: Employee): void\n    + removeEmployee(employee: Employee): void\n}\n\nEmployee \"*\" -- \"1\" Department : belongs to\n@enduml"
+    },
+    {
+        "id": 14,
+        "title": "学生情報管理システム",
+        "theme": "クラス図",
+        "uml": "@startuml\nclass Student {\n    - studentId: String\n    - name: String\n    - major: String\n    + enroll(course: Course): void\n    + drop(course: Course): void\n}\n\nclass Course {\n    - courseId: String\n    - courseName: String\n    - credits: int\n    + getCourseDetails(): String\n}\n\nStudent \"*\" -- \"*\" Course : enrolls in\n@enduml"
+    },
+    {
+        "id": 15,
+        "title": "ホテル予約システム",
+        "theme": "クラス図",
+        "uml": "@startuml\nclass Reservation {\n    - reservationId: String\n    - checkInDate: Date\n    - checkOutDate: Date\n    + confirm(): void\n}\n\nclass Room {\n    - roomNumber: String\n    - type: String\n    - price: float\n    + getRoomDetails(): String\n}\n\nclass Guest {\n    - guestId: String\n    - name: String\n    + makeReservation(reservation: Reservation): void\n}\n\nReservation \"1\" -- \"1\" Room : books\nGuest \"1\" -- \"*\" Reservation : makes\n@enduml"
+    },
+    {
+        "id": 16,
+        "title": "ユーザーのログインプロセス",
+        "theme": "アクティビティ図",
+        "uml": "@startuml\nstart\n:Enter username and password;\nif (Credentials valid?) then (yes)\n  :Redirect to dashboard;\nelse (no)\n  :Show error message;\nendif\nstop\n@enduml"
+    },
+    {
+        "id": 17,
+        "title": "商品購入プロセス",
+        "theme": "アクティビティ図",
+        "uml": "@startuml\nstart\n:Browse items;\n:Select items to purchase;\n:Add items to cart;\n:Proceed to checkout;\nif (Payment successful?) then (yes)\n  :Confirm order;\n  :Send confirmation email;\nelse (no)\n  :Show payment error;\nendif\nstop\n@enduml"
+    },
+    {
+        "id": 18,
+        "title": "ユーザー登録プロセス",
+        "theme": "アクティビティ図",
+        "uml": "@startuml\nstart\n:Fill registration form;\n:Submit form;\n:Validate input;\nif (Validation successful?) then (yes)\n  :Store user data;\n  :Send welcome email;\nelse (no)\n  :Show validation errors;\nendif\nstop\n@enduml"
+    },
+    {
+        "id": 19,
+        "title": "図書の貸出プロセス",
+        "theme": "アクティビティ図",
+        "uml": "@startuml\nstart\n:Search for book;\n:Select book;\n:Check availability;\nif (Book available?) then (yes)\n  :Issue book;\n  :Update records;\nelse (no)\n  :Notify user of unavailability;\nendif\nstop\n@enduml"
+    },
+    {
+        "id": 20,
+        "title": "ホテル予約プロセス",
+        "theme": "アクティビティ図",
+        "uml": "@startuml\nstart\n:Search for available rooms;\n:Select room;\n:Enter guest details;\n:Confirm booking;\nif (Payment required?) then (yes)\n  :Process payment;\n  if (Payment successful?) then (yes)\n    :Send booking confirmation;\n  else (no)\n    :Show payment error;\n  endif\nelse (no)\n  :Send booking confirmation;\nendif\nstop\n@enduml"
+    },
+    {
+        "id": 21,
+        "title": "オンラインショッピングシステムのコンポーネント図",
+        "theme": "コンポーネント図",
+        "uml": "@startuml\npackage \"Web Application\" {\n    [User Interface] <<component>>\n    [Order Management] <<component>>\n    [Product Catalog] <<component>>\n}\n\npackage \"Backend Services\" {\n    [Authentication Service] <<component>>\n    [Payment Gateway] <<component>>\n    [Database] <<component>>\n}\n\n[User Interface] -- [Order Management] : uses\n[Order Management] -- [Product Catalog] : queries\n[Order Management] -- [Authentication Service] : authenticates\n[Order Management] -- [Payment Gateway] : processes payment\n[Order Management] -- [Database] : stores data\n@enduml"
+    },
+    {
+        "id": 22,
+        "title": "図書館管理システムのコンポーネント図",
+        "theme": "コンポーネント図",
+        "uml": "@startuml\npackage \"Library System\" {\n    [Catalog Management] <<component>>\n    [User Management] <<component>>\n    [Loan Processing] <<component>>\n    [Notification Service] <<component>>\n}\n\npackage \"External Services\" {\n    [Email Service] <<component>>\n}\n\n[Catalog Management] -- [Loan Processing] : manages\n[User Management] -- [Loan Processing] : interacts\n[Loan Processing] -- [Notification Service] : triggers\n[Notification Service] -- [Email Service] : sends emails\n@enduml"
+    },
+    {
+        "id": 23,
+        "title": "社員管理システムのコンポーネント図",
+        "theme": "コンポーネント図",
+        "uml": "@startuml\npackage \"Employee Management System\" {\n    [Employee Database] <<component>>\n    [HR Interface] <<component>>\n    [Payroll Service] <<component>>\n    [Reporting Tool] <<component>>\n}\n\n[HR Interface] -- [Employee Database] : queries\n[HR Interface] -- [Payroll Service] : updates\n[Payroll Service] -- [Employee Database] : records payroll\n[Reporting Tool] -- [Employee Database] : generates reports\n@enduml"
+    },
+    {
+        "id": 24,
+        "title": "学生情報管理システムのコンポーネント図",
+        "theme": "コンポーネント図",
+        "uml": "@startuml\npackage \"Student Information System\" {\n    [Student Database] <<component>>\n    [Enrollment Service] <<component>>\n    [Course Management] <<component>>\n    [Reporting Service] <<component>>\n}\n\n[Enrollment Service] -- [Student Database] : updates\n[Course Management] -- [Student Database] : manages\n[Reporting Service] -- [Student Database] : retrieves data\n@enduml"
+    },
+    {
+        "id": 25,
+        "title": "ホテル予約システムのコンポーネント図",
+        "theme": "コンポーネント図",
+        "uml": "@startuml\npackage \"Hotel Reservation System\" {\n    [Reservation Management] <<component>>\n    [Room Inventory] <<component>>\n    [Guest Management] <<component>>\n    [Payment Processing] <<component>>\n}\n\n[Reservation Management] -- [Room Inventory] : queries\n[Reservation Management] -- [Guest Management] : updates\n[Reservation Management] -- [Payment Processing] : handles payments\n[Payment Processing] -- [Guest Management] : updates\n@enduml"
     }
 ]
