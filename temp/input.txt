@@ -1,8 +1,3 @@
 @startuml
-customer -> webapp: place order
-webapp -> orderService: process order
-orderService -> inventory: checkstock
-inventory -> orderService: stock available
-orderService -> webapp: order processed
-webapp -> customer: confirmation
+pizza -> bob
 @enduml

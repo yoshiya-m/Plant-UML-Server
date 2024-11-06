@@ -10,7 +10,7 @@ const config = {
 }
 
 let timeout;
-const requestDelay = 1000;
+const requestDelay = 200;
 let editor;
 
 
