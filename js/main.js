@@ -8,7 +8,7 @@ const config = {
 }
 
 let timeout;
-const requestDelay = 1000;
+const requestDelay = 200;
 let editor;
 
 
@@ -21,7 +21,6 @@ function sendRequest(requestType, isDelayed = true) {
 
     // delayが必要な場合は、setTimeoutする
     if (isDelayed) {
-        console.log("delay あり" + delay)
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             requestHandler(requestType)
@@ -34,7 +33,6 @@ function sendRequest(requestType, isDelayed = true) {
 
 
 function requestHandler(requestType) {
-    console.log("request start!!")
     var text = editor.getValue();
     // 入力テキストが有効か確認
     if ((text.includes("@startuml") === false || text.includes("@enduml") === false) && requestType === "user") {

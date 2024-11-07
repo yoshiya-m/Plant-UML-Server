@@ -2,7 +2,7 @@
 // 削除したいファイルのパス
 $tmpDir = __DIR__ . '/../tmp';
 $files = scandir($tmpDir);
-$FILE_LIMIT_SEC = 20;
+$FILE_LIMIT_SEC = 300;
 
 foreach($files as $file) {
 
