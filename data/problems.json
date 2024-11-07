@@ -123,30 +123,32 @@
         "id": 21,
         "title": "オンラインショッピングシステムのコンポーネント図",
         "theme": "コンポーネント図",
-        "uml": "@startuml\npackage \"Web Application\" {\n    [User Interface] <<component>>\n    [Order Management] <<component>>\n    [Product Catalog] <<component>>\n}\n\npackage \"Backend Services\" {\n    [Authentication Service] <<component>>\n    [Payment Gateway] <<component>>\n    [Database] <<component>>\n}\n\n[User Interface] -- [Order Management] : uses\n[Order Management] -- [Product Catalog] : queries\n[Order Management] -- [Authentication Service] : authenticates\n[Order Management] -- [Payment Gateway] : processes payment\n[Order Management] -- [Database] : stores data\n@enduml"
+        "uml": "@startuml\npackage \"Web Application\" {\n    [User Interface] \n    [Order Management] \n    [Product Catalog] \n}\n\npackage \"Backend Services\" {\n    [Authentication Service] \n    [Payment Gateway] \n    [Database] \n}\n\n[User Interface] -- [Order Management] : uses\n[Order Management] -- [Product Catalog] : queries\n[Order Management] -- [Authentication Service] : authenticates\n[Order Management] -- [Payment Gateway] : processes payment\n[Order Management] -- [Database] : stores data\n@enduml"
     },
     {
         "id": 22,
         "title": "図書館管理システムのコンポーネント図",
         "theme": "コンポーネント図",
-        "uml": "@startuml\npackage \"Library System\" {\n    [Catalog Management] <<component>>\n    [User Management] <<component>>\n    [Loan Processing] <<component>>\n    [Notification Service] <<component>>\n}\n\npackage \"External Services\" {\n    [Email Service] <<component>>\n}\n\n[Catalog Management] -- [Loan Processing] : manages\n[User Management] -- [Loan Processing] : interacts\n[Loan Processing] -- [Notification Service] : triggers\n[Notification Service] -- [Email Service] : sends emails\n@enduml"
+        "uml": "@startuml\npackage \"Library System\" {\n    [Catalog Management] \n    [User Management] \n    [Loan Processing] \n    [Notification Service] \n}\n\npackage \"External Services\" {\n    [Email Service] \n}\n\n[Catalog Management] -- [Loan Processing] : manages\n[User Management] -- [Loan Processing] : interacts\n[Loan Processing] -- [Notification Service] : triggers\n[Notification Service] -- [Email Service] : sends emails\n@enduml"
     },
     {
         "id": 23,
         "title": "社員管理システムのコンポーネント図",
         "theme": "コンポーネント図",
-        "uml": "@startuml\npackage \"Employee Management System\" {\n    [Employee Database] <<component>>\n    [HR Interface] <<component>>\n    [Payroll Service] <<component>>\n    [Reporting Tool] <<component>>\n}\n\n[HR Interface] -- [Employee Database] : queries\n[HR Interface] -- [Payroll Service] : updates\n[Payroll Service] -- [Employee Database] : records payroll\n[Reporting Tool] -- [Employee Database] : generates reports\n@enduml"
+        "uml": "@startuml\npackage \"Employee Management System\" {\n    [Employee Database] \n    [HR Interface] \n    [Payroll Service] \n    [Reporting Tool] \n}\n\n[HR Interface] -- [Employee Database] : queries\n[HR Interface] -- [Payroll Service] : updates\n[Payroll Service] -- [Employee Database] : records payroll\n[Reporting Tool] -- [Employee Database] : generates reports\n@enduml"
     },
     {
         "id": 24,
-        "title": "学生情報管理システムのコンポーネント図",
+        "title": "SNSプラットフォームのコンポーネント図",
         "theme": "コンポーネント図",
-        "uml": "@startuml\npackage \"Student Information System\" {\n    [Student Database] <<component>>\n    [Enrollment Service] <<component>>\n    [Course Management] <<component>>\n    [Reporting Service] <<component>>\n}\n\n[Enrollment Service] -- [Student Database] : updates\n[Course Management] -- [Student Database] : manages\n[Reporting Service] -- [Student Database] : retrieves data\n@enduml"
+        "uml": "@startuml\npackage \"Social Media Platform\" {\n  [User Profile]\n  [Post Service]\n  [Notification Service]\n}\n\n[User Profile] --> [Post Service] : creates posts\n[Post Service] --> [Notification Service] : triggers notifications\n@enduml"
     },
     {
         "id": 25,
         "title": "ホテル予約システムのコンポーネント図",
         "theme": "コンポーネント図",
-        "uml": "@startuml\npackage \"Hotel Reservation System\" {\n    [Reservation Management] <<component>>\n    [Room Inventory] <<component>>\n    [Guest Management] <<component>>\n    [Payment Processing] <<component>>\n}\n\n[Reservation Management] -- [Room Inventory] : queries\n[Reservation Management] -- [Guest Management] : updates\n[Reservation Management] -- [Payment Processing] : handles payments\n[Payment Processing] -- [Guest Management] : updates\n@enduml"
+        "uml": "@startuml\npackage \"Web Application\" {\n  [Web Server]\n  [UI]\n}\n\npackage \"Backend Services\" {\n  [Authentication Service]\n  [Payment Service]\n}\n\n[Web Server] --> [UI] : serves\n[Web Server] --> [Authentication Service] : requests\n[Web Server] --> [Payment Service] : communicates\n[Authentication Service] --> [Database] : reads/writes\n[Payment Service] --> [Database] : stores payment info\n@enduml"
     }
+
+    
 ]
